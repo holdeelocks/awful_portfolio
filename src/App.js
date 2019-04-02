@@ -1,90 +1,71 @@
-import React, { Component, Fragment } from 'react';
+import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+import { faFileDownload } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Particles from 'react-particles-js';
-import styled from 'styled-components';
-import './App.css';
+import React from 'react';
 
-const Name = styled.h1`
-	color: white;
-	position: absolute;
-	bottom: 50%;
-	right: 50%;
-	font-size: 2.6rem;
-	font-weight: 400;
-`;
+import { Header, SubHeading, Name, IconWrapper } from './styles';
 
-const SubHeading = styled.p`
-	color: white;
-	position: absolute;
-	font-size: 2rem;
-	bottom: 42.5%;
-	right: 50%;
-`;
-
-class App extends Component {
-	render() {
-		return (
-			<div>
-				<div
-					style={{
-						position: 'relative',
-						height: '100vh',
-						backgroundColor: '#0e132f'
-					}}
-				>
-					<Name>Holden Bucher</Name>
-					<SubHeading>Full Stack Web Developer</SubHeading>
-					<Particles
-						params={{
-							particles: {
-								number: {
-									value: 60,
-									density: {
-										enable: true,
-										value_area: 1500
-									}
-								},
-								line_linked: {
+const App = () => {
+	return (
+		<div>
+			<div
+				style={{
+					position: 'absolute',
+					height: '100vh',
+					width: '100%',
+					backgroundColor: '#0e132f'
+				}}
+			>
+				<Header>
+					<IconWrapper>
+						<a href="https://github.com/holdeelocks" rel="noopener noreferrer" target="_blank">
+							<FontAwesomeIcon icon={faGithub} size="2x" color="white" />
+						</a>
+						<a
+							href="https://www.linkedin.com/in/holden-bucher/"
+							rel="noopener noreferrer"
+							target="_blank"
+						>
+							<FontAwesomeIcon icon={faLinkedinIn} size="2x" color="white" />
+						</a>
+						<a
+							href="https://resume.creddle.io/resume/7oc4tjn5l28"
+							rel="noopener noreferrer"
+							target="_blank"
+						>
+							<FontAwesomeIcon icon={faFileDownload} size="2x" color="white" />
+						</a>
+					</IconWrapper>
+				</Header>
+				<Name>Holden Bucher</Name>
+				<SubHeading>Full Stack Web Developer</SubHeading>
+				<Particles
+					width={'100vw'}
+					height={'100vh'}
+					style={{ position: 'absolute', top: 0, left: 0 }}
+					params={{
+						particles: {
+							number: {
+								value: 50
+							},
+							size: {
+								value: 3
+							}
+						},
+						interactivity: {
+							events: {
+								onhover: {
 									enable: true,
-									opacity: 0.02
-								},
-								move: {
-									direction: 'right',
-									speed: 0.05
-								},
-								size: {
-									value: 1
-								},
-								opacity: {
-									anim: {
-										enable: true,
-										speed: 1,
-										opacity_min: 0.05
-									}
+									mode: 'repulse'
 								}
-							},
-							interactivity: {
-								events: {
-									onclick: {
-										enable: true,
-										mode: 'push'
-									}
-								},
-								modes: {
-									push: {
-										particles_nb: 1
-									}
-								}
-							},
-							retina_detect: true
-						}}
-					/>
-					<div>
-						<p style={{ color: 'red' }}>Here is more stuffs</p>
-					</div>
-				</div>
+							}
+						}
+					}}
+				/>
 			</div>
-		);
-	}
-}
+		</div>
+	);
+};
 
 export default App;
