@@ -13,41 +13,64 @@ import {
 } from './icons';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
-import qb from '../images/quizbaker.png';
-import qb1 from '../images/quizbaker1.png';
-import qb2 from '../images/quizbaker2.png';
-import qb3 from '../images/quizbaker3.png';
-import qb4 from '../images/quizbaker4.png';
-import qb5 from '../images/quizbaker5.png';
-import ss1 from '../images/ss1.png';
-import ss2 from '../images/ss2.png';
-import ss3 from '../images/ss3.png';
-import ss4 from '../images/ss4.png';
-import ss5 from '../images/ss5.png';
-import up4 from '../images/up4.png';
-import up41 from '../images/up41.png';
-import up42 from '../images/up42.png';
-import up43 from '../images/up43.png';
+import qb from '../../images/quizbaker.png';
+import qb1 from '../../images/quizbaker1.png';
+import qb2 from '../../images/quizbaker2.png';
+import qb3 from '../../images/quizbaker3.png';
+import qb4 from '../../images/quizbaker4.png';
+import qb5 from '../../images/quizbaker5.png';
+import testnet from '../../images/testnet.png';
+import testnet1 from '../../images/testnet1.png';
+import testnet2 from '../../images/testnet2.png';
+import testnet3 from '../../images/testnet3.png';
+import testnet4 from '../../images/testnet4.png';
+import up4 from '../../images/up4.png';
+import up41 from '../../images/up41.png';
+import up42 from '../../images/up42.png';
+import up43 from '../../images/up43.png';
+import up44 from '../../images/up44.png';
+import up45 from '../../images/up45.png';
+import up46 from '../../images/up46.png';
+// import up47 from '../../images/up47.png';
 
 const Wrapper = styled.div`
-	max-width: 1400px;
+	background-color: #ffffff;
+	background: url('https://www.transparenttextures.com/patterns/bright-squares.png') no-repeat
+		center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+
+	position: relative;
+	top: 100vh;
+	padding: 5% 10%;
+
 	display: flex;
 	flex-wrap: wrap;
-
 	justify-content: space-between;
-	margin: 20px auto;
+	margin: 0 auto;
+
+	.bg {
+		width: 100%;
+		height: auto;
+		z-index: -1;
+		padding-top: 3%;
+
+		position: fixed;
+		top: 0;
+		left: 0;
+	}
 	@media (max-width: 1300px) {
 		justify-content: center;
 	}
 `;
 
 const ProjectWrapper = styled.div`
-	/* padding: 0 20px; */
-	margin: 40px 10px;
+	margin: 1% auto;
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-
 	font-family: 'Open Sans', sans-serif;
 	a {
 		text-decoration: none;
@@ -103,7 +126,8 @@ const projectList = [
 	{
 		title: 'Up4',
 		link: 'https://up4.life/',
-		repo: 'https://github.com/Lambda-School-Labs/labs10-date-planning',
+		frontend: 'https://github.com/up4life/frontend',
+		backend: 'https://github.com/up4life/backend',
 		icons: [
 			<GraphqlIcon />,
 			<CSSIcon />,
@@ -112,28 +136,37 @@ const projectList = [
 			<ReactIcon />,
 			<HerokuIcon />
 		],
-		images: [{ original: up4 }, { original: up41 }, { original: up42 }, { original: up43 }]
-	},
-	{
-		title: 'Eastside Swim School',
-		link: 'https://www.eastsideswimschool.com/',
-		repo: 'https://github.com/cooltable/eastside-swim-school',
-		icons: [<GatsbyIcon />, <CSSIcon />, <GraphqlIcon />, <ReactIcon />, <JsIcon />],
 		images: [
-			{ original: ss1 },
-			{ original: ss2 },
-			{ original: ss3 },
-			{ original: ss4 },
-			{ original: ss5 }
+			{ original: up4 },
+			{ original: up41 },
+			{ original: up42 },
+			{ original: up43 },
+			{ original: up44 },
+			{ original: up45 },
+			{ original: up46 }
+			// { original: up47 }
 		]
 	},
 	{
-		title: 'Quiz Baker',
-		link: 'https://quiz-baker.com/',
-		repo: 'https://github.com/llwor94/quiz-baker',
+		title: 'TestNet: Quiz App',
+		link: 'https://holdeelocks.github.io/TestNet/',
+		repo: 'https://github.com/cooltable/eastside-swim-school',
+		icons: [<CSSIcon />, <ReactIcon />, <JsIcon />],
+		images: [
+			{ original: testnet },
+			{ original: testnet1 },
+			{ original: testnet2 },
+			{ original: testnet3 },
+			{ original: testnet4 }
+		]
+	},
+	{
+		title: 'guidr',
+		link: 'https://guidrfrontend.netlify.com',
+		repo: 'https://github.com/lsbw-guidr/backend',
 		icons: [
-			<GatsbyIcon />,
-			<CSSIcon />,
+			// <GatsbyIcon />,
+			// <CSSIcon />,
 			<NodeIcon />,
 			<JsIcon />,
 			<PostgresIcon />,
@@ -172,8 +205,17 @@ const Projects = () => (
 						<h3>{project.title}</h3>
 						<div className="icon-wrap">{project.icons.map(icon => icon)}</div>
 						<div>
-							<a href={project.link}>Live Site</a> &bull;
-							<a href={project.repo}>Project Repository</a>
+							{project.title === 'Up4' ? (
+								<>
+									<a href={project.link}>Live Site</a> &bull;
+									<a href={project.frontend}>Frontend</a> /<a href={project.backend}>Backend </a>
+								</>
+							) : (
+								<>
+									<a href={project.link}>Live Site</a> &bull;
+									<a href={project.repo}>Project Repository</a>
+								</>
+							)}
 						</div>
 					</div>
 					<hr />

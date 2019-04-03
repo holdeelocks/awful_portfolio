@@ -5,6 +5,7 @@ import Particles from 'react-particles-js';
 import React from 'react';
 
 import { Header, SubHeading, Name, IconWrapper } from './styles';
+import Projects from './components/projects';
 
 const App = () => {
 	return (
@@ -64,6 +65,9 @@ const App = () => {
 					}}
 				/>
 			</div>
+			{/* <div> */}
+			<Projects />
+			{/* </div> */}
 		</div>
 	);
 };
