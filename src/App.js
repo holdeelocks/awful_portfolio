@@ -2,24 +2,18 @@ import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import { faFileDownload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Particles from 'react-particles-js';
+// import styled from 'styled-components';
 import React from 'react';
 
-import { Header, SubHeading, Name, IconWrapper } from './styles';
+import { Heading, SubHeading, Nav, SubNav, LinkWrap, AppWrap } from './styles';
 import Projects from './components/projects';
 
 const App = () => {
 	return (
-		<div>
-			<div
-				style={{
-					position: 'absolute',
-					height: '100vh',
-					width: '100%',
-					backgroundColor: '#0e132f'
-				}}
-			>
-				<Header>
-					<IconWrapper>
+		<>
+			<AppWrap>
+				<Nav>
+					<SubNav>
 						<a href="https://github.com/holdeelocks" rel="noopener noreferrer" target="_blank">
 							<FontAwesomeIcon icon={faGithub} size="2x" color="white" />
 						</a>
@@ -37,10 +31,15 @@ const App = () => {
 						>
 							<FontAwesomeIcon icon={faFileDownload} size="2x" color="white" />
 						</a>
-					</IconWrapper>
-				</Header>
-				<Name>Holden Bucher</Name>
+					</SubNav>
+				</Nav>
+				<Heading>Holden Bucher</Heading>
 				<SubHeading>Full Stack Web Developer</SubHeading>
+				<LinkWrap>
+					<a href="#projects">Projects</a> &bull;
+					<a href="#aboutMe">About Me</a> &bull;
+					<a href="#contact">Contact</a>
+				</LinkWrap>
 				<Particles
 					width={'100vw'}
 					height={'100vh'}
@@ -64,11 +63,10 @@ const App = () => {
 						}
 					}}
 				/>
-			</div>
-			{/* <div> */}
+			</AppWrap>
+
 			<Projects />
-			{/* </div> */}
-		</div>
+		</>
 	);
 };
 

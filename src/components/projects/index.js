@@ -1,9 +1,11 @@
-import React from 'react';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { Carousel } from 'react-responsive-carousel';
 import styled from 'styled-components';
+import React from 'react';
+
 import {
 	GraphqlIcon,
 	CSSIcon,
-	GatsbyIcon,
 	ReactIcon,
 	JsIcon,
 	NodeIcon,
@@ -11,19 +13,18 @@ import {
 	HerokuIcon,
 	SassIcon
 } from './icons';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { Carousel } from 'react-responsive-carousel';
-import qb from '../../images/quizbaker.png';
-import qb1 from '../../images/quizbaker1.png';
-import qb2 from '../../images/quizbaker2.png';
-import qb3 from '../../images/quizbaker3.png';
-import qb4 from '../../images/quizbaker4.png';
-import qb5 from '../../images/quizbaker5.png';
+
+import guidr1 from '../../images/guidr1.png';
+import guidr2 from '../../images/guidr2.png';
+import guidr3 from '../../images/guidr3.png';
+import guidr4 from '../../images/guidr4.png';
+
 import testnet from '../../images/testnet.png';
 import testnet1 from '../../images/testnet1.png';
 import testnet2 from '../../images/testnet2.png';
 import testnet3 from '../../images/testnet3.png';
 import testnet4 from '../../images/testnet4.png';
+
 import up4 from '../../images/up4.png';
 import up41 from '../../images/up41.png';
 import up42 from '../../images/up42.png';
@@ -31,9 +32,8 @@ import up43 from '../../images/up43.png';
 import up44 from '../../images/up44.png';
 import up45 from '../../images/up45.png';
 import up46 from '../../images/up46.png';
-// import up47 from '../../images/up47.png';
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
 	background-color: #ffffff;
 	background: url('https://www.transparenttextures.com/patterns/bright-squares.png') no-repeat
 		center center fixed;
@@ -42,9 +42,10 @@ const Wrapper = styled.div`
 	-o-background-size: cover;
 	background-size: cover;
 
+	padding: 0 10% 3%;
 	position: relative;
-	top: 100vh;
-	padding: 5% 10%;
+	left: 0;
+	top: 0;
 
 	display: flex;
 	flex-wrap: wrap;
@@ -52,37 +53,38 @@ const Wrapper = styled.div`
 	margin: 0 auto;
 
 	.bg {
+		position: fixed;
+		z-index: -1;
 		width: 100%;
 		height: auto;
-		z-index: -1;
-		padding-top: 3%;
-
-		position: fixed;
 		top: 0;
 		left: 0;
 	}
+
 	@media (max-width: 1300px) {
 		justify-content: center;
 	}
 `;
 
 const ProjectWrapper = styled.div`
-	margin: 1% auto;
 	display: flex;
-	align-items: center;
 	flex-direction: column;
+	align-items: center;
+	margin: 1% auto;
 	font-family: 'Open Sans', sans-serif;
 	a {
 		text-decoration: none;
-		color: gray;
+		color: black;
 		padding-left: 5px;
 		font-size: 16px;
 	}
 	p {
-		font-size: 16px;
+		font-size: 1.2rem;
 	}
 	h3 {
 		margin-bottom: 8px;
+		font-size: 1.4rem;
+		color: #0e132f;
 	}
 	.carousel {
 		width: 400px;
@@ -122,6 +124,17 @@ const ProjectWrapper = styled.div`
 	}
 `;
 
+const ProjectsHeading = styled.h2`
+	color: #0e132f;
+	font-size: 3rem;
+	margin: 0 auto;
+	padding: 5% 0;
+	margin: 0 auto 2%;
+	text-shadow: 5px 5px lightgrey;
+	text-align: center;
+	width: 100%;
+`;
+
 const projectList = [
 	{
 		title: 'Up4',
@@ -144,7 +157,6 @@ const projectList = [
 			{ original: up44 },
 			{ original: up45 },
 			{ original: up46 }
-			// { original: up47 }
 		]
 	},
 	{
@@ -161,30 +173,17 @@ const projectList = [
 		]
 	},
 	{
-		title: 'guidr',
-		link: 'https://guidrfrontend.netlify.com',
+		title: 'guidr API',
+		link: 'https://guidrapi.herokuapp.com',
 		repo: 'https://github.com/lsbw-guidr/backend',
-		icons: [
-			// <GatsbyIcon />,
-			// <CSSIcon />,
-			<NodeIcon />,
-			<JsIcon />,
-			<PostgresIcon />,
-			<HerokuIcon />
-		],
-		images: [
-			{ original: qb },
-			{ original: qb1 },
-			{ original: qb2 },
-			{ original: qb3 },
-			{ original: qb4 },
-			{ original: qb5 }
-		]
+		icons: [<NodeIcon />, <JsIcon />, <PostgresIcon />, <HerokuIcon />],
+		images: [{ original: guidr1 }, { original: guidr2 }, { original: guidr3 }, { original: guidr4 }]
 	}
 ];
 
 const Projects = () => (
 	<Wrapper id="projects">
+		<ProjectsHeading>Projects</ProjectsHeading>
 		{projectList.map(project => {
 			return (
 				<ProjectWrapper>
