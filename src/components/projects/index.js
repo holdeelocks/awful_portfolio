@@ -1,6 +1,5 @@
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
-import styled from 'styled-components';
 import React from 'react';
 
 import {
@@ -13,6 +12,7 @@ import {
 	HerokuIcon,
 	SassIcon
 } from './icons';
+import { SubCatWrapper, ProjectWrap, ProjectHeader } from '../../styles';
 
 import guidr1 from '../../images/guidr1.png';
 import guidr2 from '../../images/guidr2.png';
@@ -33,108 +33,6 @@ import up44 from '../../images/up44.png';
 import up45 from '../../images/up45.png';
 import up46 from '../../images/up46.png';
 
-const Wrapper = styled.section`
-	background-color: #ffffff;
-	background: url('https://www.transparenttextures.com/patterns/bright-squares.png') no-repeat
-		center center fixed;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-
-	padding: 0 10% 3%;
-	position: relative;
-	left: 0;
-	top: 0;
-
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	margin: 0 auto;
-
-	.bg {
-		position: fixed;
-		z-index: -1;
-		width: 100%;
-		height: auto;
-		top: 0;
-		left: 0;
-	}
-
-	@media (max-width: 1300px) {
-		justify-content: center;
-	}
-`;
-
-const ProjectWrapper = styled.div`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin: 1% auto;
-	font-family: 'Open Sans', sans-serif;
-	a {
-		text-decoration: none;
-		color: black;
-		padding-left: 5px;
-		font-size: 16px;
-	}
-	p {
-		font-size: 1.2rem;
-	}
-	h3 {
-		margin-bottom: 8px;
-		font-size: 1.4rem;
-		color: #0e132f;
-	}
-	.carousel {
-		width: 400px;
-		margin-right: 20px;
-		.slider {
-			width: 400px;
-		}
-	}
-	.icon-wrap {
-		display: flex;
-		justify-content: center;
-		svg {
-			width: 15px;
-			height: 15px;
-			margin: 5px;
-		}
-	}
-
-	@media (max-width: 650px) {
-		flex-direction: column;
-		.carousel {
-			width: 100%;
-			margin-right: 0;
-
-			.slider {
-				width: 100%;
-			}
-		}
-		.text {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-		}
-		.icon-wrap {
-			justify-content: center;
-		}
-	}
-`;
-
-const ProjectsHeading = styled.h2`
-	color: #0e132f;
-	font-size: 3rem;
-	margin: 0 auto;
-	padding: 5% 0;
-	margin: 0 auto 2%;
-	text-shadow: 5px 5px lightgrey;
-	text-align: center;
-	width: 100%;
-`;
-
 const projectList = [
 	{
 		title: 'Up4',
@@ -142,12 +40,12 @@ const projectList = [
 		frontend: 'https://github.com/up4life/frontend',
 		backend: 'https://github.com/up4life/backend',
 		icons: [
-			<GraphqlIcon />,
-			<CSSIcon />,
-			<NodeIcon />,
-			<SassIcon />,
-			<ReactIcon />,
-			<HerokuIcon />
+			<GraphqlIcon key={1} />,
+			<CSSIcon key={2} />,
+			<NodeIcon key={3} />,
+			<SassIcon key={4} />,
+			<ReactIcon key={5} />,
+			<HerokuIcon key={6} />
 		],
 		images: [
 			{ original: up4 },
@@ -163,7 +61,7 @@ const projectList = [
 		title: 'TestNet: Quiz App',
 		link: 'https://holdeelocks.github.io/TestNet/',
 		repo: 'https://github.com/cooltable/eastside-swim-school',
-		icons: [<CSSIcon />, <ReactIcon />, <JsIcon />],
+		icons: [<CSSIcon key={1} />, <ReactIcon key={2} />, <JsIcon key={3} />],
 		images: [
 			{ original: testnet },
 			{ original: testnet1 },
@@ -176,17 +74,22 @@ const projectList = [
 		title: 'guidr API',
 		link: 'https://guidrapi.herokuapp.com',
 		repo: 'https://github.com/lsbw-guidr/backend',
-		icons: [<NodeIcon />, <JsIcon />, <PostgresIcon />, <HerokuIcon />],
+		icons: [
+			<NodeIcon key={1} />,
+			<JsIcon key={2} />,
+			<PostgresIcon key={3} />,
+			<HerokuIcon key={4} />
+		],
 		images: [{ original: guidr1 }, { original: guidr2 }, { original: guidr3 }, { original: guidr4 }]
 	}
 ];
 
 const Projects = () => (
-	<Wrapper id="projects">
-		<ProjectsHeading>Projects</ProjectsHeading>
+	<SubCatWrapper id="projects">
+		<ProjectHeader>Projects</ProjectHeader>
 		{projectList.map(project => {
 			return (
-				<ProjectWrapper>
+				<ProjectWrap key={project.title}>
 					<Carousel
 						infiniteLoop
 						showIndicators={false}
@@ -194,8 +97,8 @@ const Projects = () => (
 						showStatus={false}
 						className="carousel"
 					>
-						{project.images.map(image => (
-							<div>
+						{project.images.map((image, i) => (
+							<div key={i}>
 								<img src={image.original} />
 							</div>
 						))}
@@ -218,10 +121,10 @@ const Projects = () => (
 						</div>
 					</div>
 					<hr />
-				</ProjectWrapper>
+				</ProjectWrap>
 			);
 		})}
-	</Wrapper>
+	</SubCatWrapper>
 );
 
 export default Projects;
