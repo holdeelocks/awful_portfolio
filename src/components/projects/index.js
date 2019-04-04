@@ -3,7 +3,7 @@ import { Carousel } from 'react-responsive-carousel';
 import Particles from 'react-particles-js';
 import React from 'react';
 
-import { SubCatWrapper, ProjectWrap, SubCatHeader } from '../../styles';
+import { SubCatWrapper, ProjectWrap } from '../../styles';
 import {
 	GraphqlIcon,
 	CSSIcon,
@@ -103,7 +103,7 @@ const Projects = () => (
 						>
 							{project.images.map((image, i) => (
 								<div key={i}>
-									<img src={image.original} />
+									<img src={image.original} alt="screenshot" />
 								</div>
 							))}
 						</Carousel>
@@ -137,9 +137,6 @@ const Projects = () => (
 				particles: {
 					number: {
 						value: 35
-					},
-					size: {
-						value: 4
 					},
 					color: {
 						value: ['#BD10E0', '#B8E986', '#50E3C2']
