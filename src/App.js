@@ -5,8 +5,9 @@ import Particles from 'react-particles-js';
 import { Link } from 'react-scroll';
 import React from 'react';
 
-import { Page, Heading, SubHeading, Nav, SubNav, LinkList, NiceLink } from './styles';
+import { Page, Heading, SubHeading, Nav, SubNav, LinkList } from './styles';
 import Projects from './components/projects';
+// import AboutMe from './components/aboutme';
 
 const App = () => {
 	return (
@@ -36,14 +37,15 @@ const App = () => {
 				<Heading>Holden Bucher</Heading>
 				<SubHeading>Full Stack Web Developer</SubHeading>
 				<LinkList>
+        {/* &bull; */}
 					<li>
 						<span />
 						<Link to="projects" spy={true} smooth={true} duration={600}>
 							Projects
 						</Link>
 					</li>
-					&bull;
-					<li>
+					{/* &bull; */}
+					{/* <li>
 						<span />
 						<Link to="aboutMe" spy={true} smooth={true} duration={550}>
 							About Me
@@ -55,7 +57,7 @@ const App = () => {
 						<Link to="contact" spy={true} smooth={true} duration={500}>
 							Contact
 						</Link>
-					</li>
+					</li> */}
 				</LinkList>
 				<Particles
 					width={'100vw'}
@@ -82,6 +84,7 @@ const App = () => {
 				/>
 			</Page>
 			<Projects />
+			{/* <AboutMe /> */}
 		</>
 	);
 };

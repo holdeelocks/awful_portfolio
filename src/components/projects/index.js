@@ -1,7 +1,9 @@
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
+import Particles from 'react-particles-js';
 import React from 'react';
 
+import { SubCatWrapper, ProjectWrap, SubCatHeader } from '../../styles';
 import {
 	GraphqlIcon,
 	CSSIcon,
@@ -12,7 +14,6 @@ import {
 	HerokuIcon,
 	SassIcon
 } from './icons';
-import { SubCatWrapper, ProjectWrap, ProjectHeader } from '../../styles';
 
 import guidr1 from '../../images/guidr1.png';
 import guidr2 from '../../images/guidr2.png';
@@ -84,46 +85,104 @@ const projectList = [
 	}
 ];
 
+const url2 = 'https://www.transparenttextures.com/patterns/ecailles.png';
+
 const Projects = () => (
-	<SubCatWrapper id="projects">
-		<ProjectHeader>Projects</ProjectHeader>
-		{projectList.map(project => {
-			return (
-				<ProjectWrap key={project.title}>
-					<Carousel
-						infiniteLoop
-						showIndicators={false}
-						showThumbs={false}
-						showStatus={false}
-						className="carousel"
-					>
-						{project.images.map((image, i) => (
-							<div key={i}>
-								<img src={image.original} />
+	<SubCatWrapper id="projects" url={url2}>
+		{/* <SubCatHeader>Projects</SubCatHeader> */}
+		<div className="container">
+			{projectList.map(project => {
+				return (
+					<ProjectWrap key={project.title}>
+						<Carousel
+							infiniteLoop
+							showIndicators={false}
+							showThumbs={false}
+							showStatus={false}
+							className="carousel"
+						>
+							{project.images.map((image, i) => (
+								<div key={i}>
+									<img src={image.original} />
+								</div>
+							))}
+						</Carousel>
+						<div className="text" style={{ textAlign: 'center' }}>
+							<h3>{project.title}</h3>
+							<div className="icon-wrap">{project.icons.map(icon => icon)}</div>
+							<div>
+								{project.title === 'Up4' ? (
+									<>
+										<a href={project.link}>Live Site</a> &bull;
+										<a href={project.frontend}>Frontend</a> /<a href={project.backend}>Backend </a>
+									</>
+								) : (
+									<>
+										<a href={project.link}>Live Site</a> &bull;
+										<a href={project.repo}>Project Repository</a>
+									</>
+								)}
 							</div>
-						))}
-					</Carousel>
-					<div className="text" style={{ textAlign: 'center' }}>
-						<h3>{project.title}</h3>
-						<div className="icon-wrap">{project.icons.map(icon => icon)}</div>
-						<div>
-							{project.title === 'Up4' ? (
-								<>
-									<a href={project.link}>Live Site</a> &bull;
-									<a href={project.frontend}>Frontend</a> /<a href={project.backend}>Backend </a>
-								</>
-							) : (
-								<>
-									<a href={project.link}>Live Site</a> &bull;
-									<a href={project.repo}>Project Repository</a>
-								</>
-							)}
 						</div>
-					</div>
-					<hr />
-				</ProjectWrap>
-			);
-		})}
+						<hr />
+					</ProjectWrap>
+				);
+			})}
+		</div>
+		<Particles
+			width={'100vw'}
+			height={'100vh'}
+			style={{ position: 'absolute', top: 0, left: 0 }}
+			params={{
+				particles: {
+					number: {
+						value: 35
+					},
+					size: {
+						value: 4
+					},
+					color: {
+						value: ['#BD10E0', '#B8E986', '#50E3C2']
+					},
+					opacity: {
+						value: 0.5211089197812949,
+						random: false,
+						anim: {
+							enable: true,
+							speed: 0.1,
+							opacity_min: 0.1,
+							sync: false
+						}
+					},
+					size: {
+						value: 8.017060304327615,
+						random: true,
+						anim: {
+							enable: true,
+							speed: 7.5,
+							size_min: 0.1,
+							sync: true
+						}
+					},
+					line_linked: {
+						enable: true,
+						distance: 140,
+						color: '#c8c8c8',
+						opacity: 0.9,
+						width: 2
+					}
+				},
+
+				interactivity: {
+					events: {
+						onhover: {
+							enable: true,
+							mode: 'repulse'
+						}
+					}
+				}
+			}}
+		/>
 	</SubCatWrapper>
 );
 
