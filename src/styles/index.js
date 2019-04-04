@@ -4,7 +4,7 @@ export const Page = styled.div`
 	position: 'absolute';
 	height: 100vh;
 	width: 100%;
-	background-image: linear-gradient(#4b5f80, #4b5f80, #4b5f80, #4b5f80, #ffffff);
+	background-image: linear-gradient(#4b5f80, #4b5f80, #ffffff);
 `;
 
 export const Nav = styled.nav`
@@ -102,11 +102,11 @@ export const SubHeading = styled.p`
 export const LinkList = styled.ul`
 	position: absolute;
 	bottom: 47.5%;
-  /* right: 30%; */
-  right: 42.5%;
+	/* right: 30%; */
+	right: 42.5%;
 	display: flex;
-  /* width: 23.5%; */
-  width: 7.5%;
+	/* width: 23.5%; */
+	width: 7.5%;
 	align-items: center;
 	justify-content: space-between;
 	color: white;
