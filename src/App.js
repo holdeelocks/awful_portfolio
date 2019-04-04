@@ -1,5 +1,5 @@
 import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
-import { faFileDownload } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Particles from 'react-particles-js';
 import { Link } from 'react-scroll';
@@ -25,19 +25,15 @@ const App = () => {
 						>
 							<FontAwesomeIcon icon={faLinkedinIn} color="white" />
 						</a>
-						<a
-							href="https://resume.creddle.io/resume/7oc4tjn5l28"
-							rel="noopener noreferrer"
-							target="_blank"
-						>
-							<FontAwesomeIcon icon={faFileDownload} color="white" />
+						<a href="mailto:holden.bucher.92@gmail.com?subject=Job Opportunity">
+							<FontAwesomeIcon icon={faEnvelope} color="white" />
 						</a>
 					</SubNav>
 				</Nav>
 				<Heading>Holden Bucher</Heading>
 				<SubHeading>Full Stack Web Developer</SubHeading>
 				<LinkList>
-        {/* &bull; */}
+					{/* &bull; */}
 					<li>
 						<span />
 						<Link to="projects" spy={true} smooth={true} duration={600}>
